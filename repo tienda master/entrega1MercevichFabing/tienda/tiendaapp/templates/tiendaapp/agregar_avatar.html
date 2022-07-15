@@ -1,0 +1,18 @@
+{% extends 'tiendaapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Crear Avatar
+{% endblock %}
+
+{% block contenidoPagina %}
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <h1>Crear avatar:</h1>
+            <form action=""method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Guardar </button>
+            </form>
+    </div>
+{% endblock %}

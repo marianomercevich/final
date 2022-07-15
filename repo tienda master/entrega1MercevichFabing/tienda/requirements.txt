@@ -1,0 +1,4 @@
+pyton
+django
+bootstrap
+pillow

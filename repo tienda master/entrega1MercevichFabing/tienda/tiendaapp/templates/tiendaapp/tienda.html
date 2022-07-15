@@ -1,0 +1,76 @@
+{% extends 'tiendaapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Home
+{% endblock %}
+
+{% block contenidoPagina %}
+<div class="b-example-divider"></div>
+
+  <div class="container px-4 py-5" id="tienda">
+    <h2 class="pb-2 border-bottom">Tienda</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4 class="fw-bold mb-0">Camperas</h4>
+          <p>Las Mejores camperas que puede ofrecer el mercado las vas a poder encontrar en esta tienda.</p>
+          <div><a class="btn btn-primary btn-sm" href="{% url 'camperas'%}">Entrar</a></div>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4 class="fw-bold mb-0">Cascos</h4>
+          <p>Aquí vas a poder encontrar las mejores y mas variadas marcas de cascos.</p>
+          <div><a class="btn btn-primary btn-sm" href="{% url 'cascos'%}">Entrar</a></div>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div>
+          <h4 class="fw-bold mb-0">Guantes</h4>
+          <p>Aca te ofrecemos la mejor variedad de guantes con la mejor durailidad que existe en la actualidad.</p>
+          <div><a class="btn btn-primary btn-sm" href="{% url 'guantes'%}">Entrar</a></div>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#home"/></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Featured title</h4>
+          <p>Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#speedometer2"/></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Featured title</h4>
+          <p>Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#toggles2"/></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Featured title</h4>
+          <p>Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#geo-fill"/></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Featured title</h4>
+          <p>Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <svg class="bi text-muted flex-shrink-0 me-3" width="1.75em" height="1.75em"><use xlink:href="#tools"/></svg>
+        <div>
+          <h4 class="fw-bold mb-0">Featured title</h4>
+          <p>Paragraph of text beneath the heading to explain the heading.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+
+{% endblock %}

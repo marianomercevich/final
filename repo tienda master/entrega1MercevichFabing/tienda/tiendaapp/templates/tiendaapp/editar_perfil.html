@@ -1,0 +1,21 @@
+{% extends 'tiendaapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Editar Perfil
+{% endblock %}
+
+{% block contenidoPagina %}
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <h1>Editar Perfil:</h1>
+        <br>
+        <h5>Estas editando el Perfil de: "{{user.username}}":</h5>
+        <br>
+        <form action=""method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar </button>
+        </form>
+    </div>
+{% endblock %}
