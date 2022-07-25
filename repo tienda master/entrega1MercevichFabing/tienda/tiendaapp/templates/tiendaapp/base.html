@@ -23,13 +23,21 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'eventos' %}">Eventos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'Eventos' %}">Eventos</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'tienda' %}">Tienda</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'contacto' %}">Contactenos</a></li>
                         {% if user.is_authenticated %}
-                            <li class="nav-item"><p class="text-light my-2 mx-2"><i class="bi bi-person-bounding-box"></i> Hola, <b>{{user.username}}</b>!</p></li>
-                            <li class="nav-item"><a class="btn btn-primary" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                            <li class="nav-item"><p class="text-light my-2 mx-2">
+                                {% if user.avatar.imagen %}
+                                    <img src="{{ user.avatar.imagen.url }}" style="width: 40px; height: 40px;" alt="">
+                                {% else %}
+                                    <i class="bi bi-person-bounding-box"></i>
+                                {% endif %}
+                                Hola, <b>{{user.username}}</b>!</p></li>
+                            <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'editar_perfil' %}">Editar Perfil</a></li>
+                            <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                            
                         {% else %}
                             <li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'login' %}">Iniciar Sesión</a></li>
                             <li class="nav-item"><a class="btn btn-outline-primary" href="{% url 'register' %}">Registrarse</a></li>
@@ -47,13 +55,13 @@
                 <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-facebook fs-3"></i></a>
+                            <a href="{% url 'en_construccion'%}" ><i class="bi-facebook fs-3"></i></a>
                         </li>
                         <li class="list-inline-item me-4">
-                            <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                            <a href="{% url 'en_construccion'%}" ><i class="bi-twitter fs-3"></i></a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                            <a href="{% url 'en_construccion'%}" ><i class="bi-instagram fs-3"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -73,34 +81,39 @@
                 <div class="col-6 col-md-2 mb-3">
                 <h5>INICIO</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Inicio</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Eventos</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Tienda</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Contactenos</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Nosotros</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'index' %}" class="nav-link p-0 text-muted">Inicio</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'Eventos' %}" class="nav-link p-0 text-muted">Eventos</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'tienda' %}" class="nav-link p-0 text-muted">Tienda</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'contacto' %}" class="nav-link p-0 text-muted">Contactenos</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'nosotros' %}" class="nav-link p-0 text-muted">Nosotros</a></li>
                 </ul>
                 </div>
         
                 <div class="col-6 col-md-2 mb-3">
                 <h5>EVENTOS</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Nuevos eventos</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Moto Encuentros</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Escapadas</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Moto Club</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Moto Viajeros</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Sorteos</a></li>
+                   {% if user.is_staff %}
+                    <li class="nav-item mb-2"><a href="{% url 'crear_Evento' %}"  class="nav-link p-0 text-muted">Nuevos Eventos</a></li>
+                   {% endif %}
+                    <li class="nav-item mb-2"><a href="{% url 'Eventos' %}" class="nav-link p-0 text-muted">Moto Encuentros</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'en_construccion'%}" class="nav-link p-0 text-muted">Escapadas</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'en_construccion'%}" class="nav-link p-0 text-muted">Moto Club</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'en_construccion'%}" class="nav-link p-0 text-muted">Moto Viajeros</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'en_construccion'%}" class="nav-link p-0 text-muted">Sorteos</a></li>
                 </ul>
                 </div>
         
                 <div class="col-6 col-md-2 mb-3">
                 <h5>TIENDA</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Cascos</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Camperas</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Guantes</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Indumentaria</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Equipaje</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'cascos' %}"  class="nav-link p-0 text-muted">Cascos</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'camperas' %}"  class="nav-link p-0 text-muted">Camperas</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'guantes' %}"  class="nav-link p-0 text-muted">Guantes</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'indumentaria' %}"  class="nav-link p-0 text-muted">Indumentaria</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'equipaje' %}"  class="nav-link p-0 text-muted">Equipaje</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'accesorios' %}"  class="nav-link p-0 text-muted">Accesorios</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'repuestos' %}"  class="nav-link p-0 text-muted">Repuestos</a></li>
+                    <li class="nav-item mb-2"><a href="{% url 'tecnologia' %}"  class="nav-link p-0 text-muted">Tecnologia</a></li>
                 </ul>
                 </div>
 

@@ -1,10 +1,6 @@
 {% extends 'tiendaapp/base.html' %}
 {% load static %}
 
-{% block tituloPagina %}
-Guantes
-{% endblock %}
-
 {% block contenidoPagina %}
 <section class="bg-light py-5">
     <div class="container px-5">
@@ -14,20 +10,20 @@ Guantes
             <div class="col-lg-12">
                 <form class="d-flex my-2 my-lg-0" action="" method="post">
                     {% csrf_token %}
-                    <input class="flex-grow-0 form-control mr-sm-2" type="search" name="search" placeholder="Buscar por marca/tipo/talle/precio" aria-label="Search">
+                    <input class="flex-grow-0 form-control mr-sm-2" type="search" name="search" placeholder="Buscar por marca/tipo/precio" aria-label="Search">
                     <button class="btn btn-outline-success text-nowrap ms-3 my-2 my-sm-0" type="submit"> <i class="bi bi-search"></i> Buscar</button>
                     {% if user.is_staff %}
-                        <a class="btn btn-outline-success text-nowrap ms-3 my-2 my-sm-0" href="{% url 'crear_guante'%}"> <i class="bi bi-plus-lg"></i> agregar guante</a>
+                        <a class="btn btn-outline-success text-nowrap ms-3 my-2 my-sm-0" href="{% url 'crear_equipaje' %}"> <i class="bi bi-plus-lg"></i> agregar accesorio</a>
                     {% endif %}
                 </form>
             </div>
         </div>
         <br>
-        <h4>Guantes
+        <h4>Equipaje
             {% if search %}
                 para "{{busqueda}}":
             {% else %}
-            en Stock:
+                en Stock:
             {% endif %}
         </h4>
         <br>
@@ -39,8 +35,8 @@ Guantes
                             <th scope="col">#</th>
                             <th scope="col">marca</th>
                             <th scope="col">tipo</th>
-                            <th scope="col">talle</th>
                             <th scope="col">precio</th>
+
                             {% if user.is_staff %}
                                 <th scope="col">Acciones</th>
                             {% endif %}
@@ -48,17 +44,16 @@ Guantes
                     </thead>
                     <tbody>
                         
-                        {% for guante in guantes %}
+                        {% for equipaje in equipaje %}
                             <tr>
                                 <th scope="row">{{forloop.counter}}</th>
-                                <td>{{guante.marca}}</td>
-                                <td>{{guante.tipo}}</td>
-                                <td>{{guante.talle}}</td>
-                                <td>{{guante.precio}}</td>
+                                <td>{{equipaje.marca}}</td>
+                                <td>{{equipaje.tipo}}</td>
+                                <td>{{equipaje.precio}}</td>
                                 <td>
                                     {% if user.is_staff %}
-                                        <a href="{% url 'editar_guante' guante.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
-                                        <a href="{% url 'eliminar_guante' guante.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
+                                        <a href="{% url 'editar_equipaje' equipaje.id %}" class="text-primary badge badge-primary text-decoration-none"> <i class="bi bi-pencil-square"></i> Editar</a>
+                                        <a href="{% url 'eliminar_equipaje' equipaje.id %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-x-square"></i> Eliminar</a>
                                     {% endif %}
                                     <a href="{% url 'ver_producto' %}" class="text-danger badge badge-danger text-decoration-none"> <i class="bi bi-cart4"></i> comprar</a>
                                 </td>

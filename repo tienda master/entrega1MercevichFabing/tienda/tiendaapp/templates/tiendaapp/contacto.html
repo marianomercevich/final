@@ -6,73 +6,34 @@ Contactenos
 {% endblock %}
 
 {% block contenidoPagina %}
-
-        <!-- Contact section-->
-        <section class="bg-light py-5">
-            <div class="container px-5 my-5 px-5">
-                <div class="text-center mb-5">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
-                    <h2 class="fw-bolder">Contactenos</h2>
-                    <p class="lead mb-0">Nos Gustaria saber de vos!</p>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <!-- Name input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Nombre</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                            </div>
-                            <!-- Email address input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">E-mail</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
-                            </div>
-                            <!-- Phone number input-->
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Numero de Telefono</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
-                            </div>
-                            <!-- Message input-->
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Mensaje</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <!-- Submit Button-->
-                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Enviar </button></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+<div class="container d-flex justify-content-center">
+	<div class="row my-2 mx-2">
+		<div class="col-md-6"> <img src="https://png.pngtree.com/png-vector/20190725/ourlarge/pngtree-message-icon-design-vector-png-image_1587713.jpg" style="width: 300px; height: 300px;"alt=""> </div>
+		<!--col-->
+		<div class="col-md-6">
+			<h2 class="form-title">Contactactenos</h2>
+			<p class="justify text-muted">hola, tienes alguna sugerencia o problema?
+				<br>Por favor llene los campos del formulario que alguien de nuestro equipo se contactara con usted.</p>
+			<form>
+				<div class="form-group pt-2 pl-1">
+					<label for="exampleInputName">Nombre</label>
+					<input type="text" class="form-control" id="exampleInputName"> </div>
+				<div class="form-group pl-1">
+					<label for="exampleInputEmail1">E-Mail</label>
+					<input type="email" class="form-control" id="exampleInputEmail1"> </div>
+				<div class="form-group pl-1">
+					<label for="exampleFormControlTextarea1">Mensaje</label>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+				</div>
+				<div class="row">
+					<div class="col-md-3 offset-md-9">
+						<li class="nav-item"><a class="btn btn-primary mx-2" href="{% url 'en_construccion'%}">Enviar</a></li>
+					</div>
+				</div>
+			</form>
+		</div>
+		<!--col-->
+	</div>
+	<!--row-->
+</div>
 {% endblock %}

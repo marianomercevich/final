@@ -6,14 +6,24 @@ Login
 {% endblock %}
 
 {% block contenidoPagina %}
-<section class="bg-light py-5">
-    <div class="container px-5">
-        <h1>Inicia Sesión:</h1>
+<div class="container d-flex justify-content-center">
+    <div class="row my-5">
+      <div class="col-md-6 text-left text-black lcol">
+        <div class="greeting"><h3>BIENVENIDOS A OVERDRIVE<span class="txt"></span></h3></div>
+        <h6 class="mt-3">Inicia secion para poder continuar rodando...</h6>
+        <div class="footer">
+
+        </div>
+      </div>
+      <div class="col-md-6 rcol">
+        <h2 class="heading mb-4">Inicia Sesión</h2>   
             <form action=""method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit">Iniciar Sesión </button>
+                <button type="submit"class="btn btn-success mt-5">Iniciar Sesión </button>
             </form>
+        <p class="exist mt-4">No estas registrado? <span><a href="{% url 'register' %}">registrate aqui</a> </span></p>
+      </div>
     </div>
+</div>
 {% endblock %}
-

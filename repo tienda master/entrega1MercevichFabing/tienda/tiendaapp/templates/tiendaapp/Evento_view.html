@@ -1,0 +1,76 @@
+{% extends 'tiendaapp/base.html' %}
+{% load static %}
+
+{% block tituloPagina %}
+Evento
+{% endblock %}
+
+{% block contenidoPagina %}
+<section class="bg-light py-5">
+    <div class="container px-5">
+        <h1>Evento:</h1>
+        <br>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-12">
+                <form class="d-flex my-2 my-lg-0" action="" method="post">
+                    {% csrf_token %}
+                </form>
+            </div>
+        </div>
+        <br>
+        <h4>Evento :
+
+        </h4>
+        <br>
+        <div class="row gx-5 justify-content-center">
+            <div class="col-lg-20 table-responsive">
+                <table class="table table-theme">
+                    <thead>
+                        <tr> 
+                        <form action=""method="post" enctype="multipart/form-data">
+                            <th scope="col">imagen </th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Texto</th>
+                            <th scope="col">Fecha </th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Valor de la entrada</th>
+                            <th scope="col">Pais</th>
+                            <th scope="col">Provincia </th>
+                            <th scope="col">Localidad</th>
+                            <th scope="col">Direccion </th>
+                            <th scope="col">Organizador</th>
+                            
+                            {% if user.is_staff %}
+                                <th scope="col">Acciones</th>
+                            {% endif %}
+                        </form>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for evento in Evento %} 
+                            <tr>
+                                <td>{{evento.imagen}}</td>
+                                <td>{{evento.Titulo}}</td>
+                                <td>{{evento.Texto}}</td>
+                                <td>{{evento.Fecha}}</td>
+                                <td>{{evento.Estado}}</td>
+                                <td>{{evento.Valor_de_la_entrada}}</td>
+                                <td>{{evento.Pais}}</td>
+                                <td>{{evento.Provincia}}</td>
+                                <td>{{evento.Localidad}}</td>
+                                <td>{{evento.Direccion}}</td>
+                                <td>{{evento.Organizador}}</td>
+                                
+                                <td>
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

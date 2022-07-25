@@ -20,10 +20,40 @@ class CamperaFormulario(forms.Form):
 
 class GuanteFormulario(forms.Form):
 
-
     marca = forms.CharField()
     tipo = forms.CharField()
     talle = forms.CharField()
+    precio = forms.FloatField()
+
+class IndumentariaFormulario(forms.Form):
+
+    tipo = forms.CharField()
+    marca = forms.CharField()
+    talle = forms.CharField()
+    precio = forms.FloatField()
+
+class EquipajeFormulario(forms.Form):
+
+    marca = forms.CharField()
+    tipo = forms.CharField()
+    precio = forms.FloatField()
+
+class AccesorioFormulario(forms.Form):
+
+    marca = forms.CharField()
+    tipo = forms.CharField()
+    precio = forms.FloatField()
+
+class RepuestoFormulario(forms.Form):
+
+    marca = forms.CharField()
+    tipo = forms.CharField()
+    precio = forms.FloatField()
+
+class TecnologiaFormulario(forms.Form):
+
+    marca = forms.CharField()
+    tipo = forms.CharField()
     precio = forms.FloatField()
 
 class UserRegisterForm(UserCreationForm):
@@ -34,6 +64,7 @@ class UserRegisterForm(UserCreationForm):
 
     first_name = forms.CharField(label="Nombre", required=False)
     last_name = forms.CharField(label="Apellido", required=False)
+    nick_name = forms.CharField(label="Nick_Name", required=False)
 
     class Meta:
         model = User
@@ -49,11 +80,10 @@ class UserEditForm(UserCreationForm):
     first_name = forms.CharField(label="Nombre")
     last_name = forms.CharField(label="Apellido")
     nick_name = forms.CharField(label="Nick-Name")
+    imagen = forms.ImageField(label="Imagen", required=False)
     class Meta:
         model = User
         fields = ['email', 'password1', 'password2', 'first_name', 'last_name', 'nick_name']
-
-        # help_texts = {k:"" for k in fields}
 
 class AvatarForm(forms.Form):
 
@@ -62,3 +92,18 @@ class AvatarForm(forms.Form):
     class Meta:
         model = Avatar
         fields = ['imagen']
+
+class EventoFormulario(forms.Form):
+
+    Titulo = forms.CharField()
+    Texto = forms.CharField()
+    Fecha = forms.DateField()
+    Estado = forms.CharField()
+    Valor_de_la_entrada = forms.FloatField()
+    Pais = forms.CharField()
+    Provincia = forms.CharField()
+    Localidad = forms.CharField()
+    Direccion = forms.CharField()
+    Organizador = forms.CharField()
+    imagen = forms.ImageField(label="imagen", required=False)
+    

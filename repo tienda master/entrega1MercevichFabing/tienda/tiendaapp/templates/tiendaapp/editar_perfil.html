@@ -6,16 +6,28 @@ Editar Perfil
 {% endblock %}
 
 {% block contenidoPagina %}
-<section class="bg-light py-5">
-    <div class="container px-5">
-        <h1>Editar Perfil:</h1>
-        <br>
-        <h5>Estas editando el Perfil de: "{{user.username}}":</h5>
-        <br>
-        <form action=""method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Guardar </button>
-        </form>
+<div class="container rounded bg-white mt-5">
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="{{ user.avatar.imagen.url }}" style="width: 150px; height: 150px;"><span class="font-weight-bold"> {{user.first_name}} {{user.last_name}}</span><span class="text-black-50">{{user.nick_name}}</span></div>
+        </div>
+        <div class="col-md-8">
+            <div class="p-3 py-5">
+                <section class="bg-light py-5">
+                    <div class="container px-5">
+                        <h1>Editar Perfil:</h1>
+                        <br>
+                        <h5>Estas editando el Perfil de: "{{user.username}}":</h5>
+                        <br>
+                        <form action=""method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-primary profile-button" type="submit">Guardar Perfil </button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
     </div>
+</div>
 {% endblock %}
